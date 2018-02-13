@@ -41,7 +41,7 @@ def build_sql(rows):
         r = parse_line(row)
         #print(len(r))
         k = 0
-        if len(r) ==33:
+        if len(r) > 30:
             sql += "("
             for val in r[0:30]:
                 val = val.replace("\""," ")
