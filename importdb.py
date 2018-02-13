@@ -76,9 +76,9 @@ if __name__=='__main__':
     per_time_insert_count = 100
     db = dbconn(config)
     cursor = db.cursor()
-    print(db.charset)
+    #print(db.charset)
     for csfile in flist:
-        print(csfile)
+        print('read file :'+csfile)
         with open(csfile,'r') as fh:
             rows = fh.readlines()
             rows = rows[1:]
