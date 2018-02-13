@@ -74,7 +74,7 @@ def logd(filename,content):
 '''
 if __name__=='__main__':
     flist = get_file_list('./csv')
-    per_time_insert_count = 100
+    per_time_insert_count = 500
     db = dbconn(config)
     cursor = db.cursor()
     #print(db.charset)
