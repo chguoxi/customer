@@ -44,6 +44,7 @@ def build_sql(rows):
         if len(r) ==33:
             sql += "("
             for val in r[0:30]:
+                val = val.replace("\""," ")
                 sql += "\""+val+"\""
                 if k < 29:
                     sql += ","
