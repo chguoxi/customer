@@ -21,6 +21,7 @@ def parse_line(line):
     row = line.split(',')
     return row
 
+
 '''
     连接数据库
 '''
@@ -45,7 +46,8 @@ def build_sql(rows):
         if len(r) >= 30:
             sql += "("
             for val in r[0:30]:
-                val = val.replace("\""," ")
+                val = val.replace("\"","")
+                val = val.replace("\\","")
                 sql += "\""+val+"\""
                 if k < 29:
                     sql += ","
