@@ -32,6 +32,7 @@ def dbconn(config):
     拼凑SQL语句
 '''
 def build_sql(rows):
+    rows = [i for i in rows if len(parse_line(i)) >=30]
     rowcount = len(rows)
     basesql =  '''insert into `profile_traveler`(`name`,`card_no`,`descriot`,`ctftp`,`ctfid`,`gender`,`birthday`,`address`,`zip`,`dirty`,`district1`,`district2`,`district3`,`district4`,`district5`,`district6`,`firstnm`,`lastnm`,`duty`,`mobile`,`tel`,`fax`,`email`,`nation`,`taste`,`education`,`company`,`ctel`,`caddress`,`czip`) values'''
     sql = basesql
@@ -41,7 +42,7 @@ def build_sql(rows):
         r = parse_line(row)
         #print(len(r))
         k = 0
-        if len(r) > 30:
+        if len(r) >= 30:
             sql += "("
             for val in r[0:30]:
                 val = val.replace("\""," ")
@@ -50,7 +51,7 @@ def build_sql(rows):
                     sql += ","
                     k += 1
             sql += ")"
-            if i < (rowcount-1):
+            if i < (rowcount-1) :
                 sql += ","
         else:
             continue
